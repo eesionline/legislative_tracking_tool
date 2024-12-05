@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 12pt;
+}
+
+h2 {
+    text-align: center;
+    font-size: 12pt;
+}
+
+.centered-table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: #f4f4f4;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-size: 12pt;
+}
+
+th {
+    font-weight: bold;
+}
+
+td {
+    vertical-align: top;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    transform: scale(2); /* Adjusts size to 1.5x larger */
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Make the entire row look clickable */
+.selectable-row {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s, border-left 0.3s;
+}
+
+/* Style for checked rows */
+input[type="checkbox"]:checked + .selectable-row {
+    background-color: #e0f7fa; /* Light blue background for selected row */
+    border-left: 4px solid #00796b; /* Accent border for selected row */
+}
+
+/* Optional: Add a hover effect */
+.selectable-row:hover {
+    background-color: #f0f0f0;
+}
+
+/* Center the image container */
+.centered-image {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjusts spacing from the top */
+}
+
+/* Set the maximum width of the image, if desired */
+.centered-image img {
+    max-width: 400px; /* Adjust to control image size */
+    height: auto; /* Keeps the aspect ratio */
+}

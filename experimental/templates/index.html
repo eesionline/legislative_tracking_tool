@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LegisFilter Pro+</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+</head>
+<body>
+    <!-- Centered Image -->
+    <div class="centered-image">
+        <a href="https://www.eesi.org/" target="_blank">
+            <img src="{{ url_for('static', filename='images/EESI_Horiz_RGB.png') }}" alt="Logo">
+        </a>
+    </div>
+    
+    <h1>Select Bills</h1>
+    <form method="POST">
+        <table class="centered-table">
+            <thead>
+                <tr>
+                    <th>Bill Information</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bill in bills %}
+                    <tr>
+                        <td>
+                            <label for="bill_{{ bill.bill_number }}" class="selectable-row">
+                                <strong style="font-size: 18px;">{{ bill.bill_type_upper }}{{ bill.bill_number }} - {{ bill.title }}</strong><br>
+                                <em>Sponsor:</em> {{ bill.sponsor }}<br>
+                                <em>Committees:</em> {{ bill.committee }}<br>
+                                <em>Latest Action:</em> {{ bill.latest_action }}<br>
+                                <p>{{ bill.summary | safe }}</p>
+                            </label>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="bill_{{ bill.bill_number }}" name="selected_bills" value="{{ bill.bill_number }}">
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit">Submit Selection</button>
+    </form>
+
+    {% if selected_bills %}
+        <h2>Selected Bills:</h2>
+        <ul>
+            {% for bill in selected_bills %}
+                <li>{{ bill.bill_number }}: {{ bill.title }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
+
+<script>
+    // Save scroll position to localStorage before the page unloads
+    window.addEventListener("beforeunload", function () {
+        localStorage.setItem("scrollPosition", window.scrollY);
+    });
+
+    // Restore scroll position after the page reloads
+    window.addEventListener("load", function () {
+        const scrollPosition = localStorage.getItem("scrollPosition");
+        if (scrollPosition) {
+            window.scrollTo(0, parseInt(scrollPosition, 10));
+            localStorage.removeItem("scrollPosition"); // Optional: clear scroll position after restoring
+        }
+    });
+</script>
