@@ -1,4 +1,4 @@
-# Congressional Bill Tracker
+# Legislative Tracking Tool
 
 This project uses the Congress.gov API to retrieve detailed information about congressional bills, including sponsors, committees, summaries, and actions. It is designed to be a tool for tracking legislative activity on specific dates.
 
@@ -26,8 +26,8 @@ This project uses the Congress.gov API to retrieve detailed information about co
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/congressional-bill-tracker.git
-   cd congressional-bill-tracker
+   git clone https://github.com/your-username/legislative_tracking_tool.git
+   cd legislative_tracking_tool
    ```
 
 2. Install dependencies:
