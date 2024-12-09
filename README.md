@@ -14,7 +14,7 @@ This project uses the Congress.gov API to retrieve detailed information about co
   - URL linking to the full bill details (TODO)
 - Formats the output as static webpage for ease of selection.
 
-## Technologies Used
+## Packages Used
 
 - **Python 3.x**
 - Libraries:
